@@ -1,8 +1,0 @@
-br\com\fiap\challenge\controller\PedidoController.class
-br\com\fiap\challenge\repository\PedidoRepository.class
-br\com\fiap\challenge\model\Pedido.class
-br\com\fiap\challenge\repository\ProdutoRepository.class
-br\com\fiap\challenge\controller\ProdutoController.class
-br\com\fiap\challenge\model\Produto.class
-br\com\fiap\challenge\controller\HomeController.class
-br\com\fiap\challenge\ChallengeApplication.class
