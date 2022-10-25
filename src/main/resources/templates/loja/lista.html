@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <h1>Lista da Loja</h1>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nome da Loja</th>
+                <th>Alguel</th>
+                <th>Shopping Id</th>
+                <th></th>
+            </tr>
+            <tr th:each="item:${Lojas}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.nome}"></td>
+                <td th:text="${item.aluguel}"></td>
+                <td th:text="${item.shopping}"></td>
+                <td>
+                    <form action="#" th:action="@{'/loja/deletar/{id}'(id=${item.id})}" th:method="delete" >
+                        <input type="hidden" name="_method" value="delete" />
+                        <button type="submit" id="submitButton">Deletar</button>
+                    </form>
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark" th:href="@{/loja/editar/} + ${item.id}">Editar</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

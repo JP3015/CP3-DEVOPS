@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <h1>Cadastro da Loja</h1>
+        <div th:if="${msg != null}" class="alert alert-success" th:text="${msg}"></div>
+        <form th:action="@{/loja/cadastrar}" method="post" th:object="${loja}">
+            <div class="form-group">
+                <label>Nome da Loja</label>
+                <input type="text" th:field="*{nome}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Aluguel</label>
+                <input type="number" th:field="*{aluguel}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Shopping Id</label>
+                <input type="number" th:field="*{shopping}" class="form-control">
+            </div>
+            <input type="submit" value="Cadastrar" class="btn btn-success">
+        </form>
+    </div>
+
+</body>
+</html>

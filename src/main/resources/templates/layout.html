@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">FIAP</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <a class="navbar-brand" href="/">FIAP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+            aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Loja
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{/loja/cadastrar}">Cadastrar</a>
+                    <a class="dropdown-item" th:href="@{/loja/listar}">Listar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Shopping
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" th:href="@{/shopping/cadastrar}">Cadastrar</a>
+                    <a class="dropdown-item" th:href="@{/shopping/listar}">Listar</a>
+                </div>
+            </li>
+        </ul>
+        <form th:action="@{/loja/buscar/}" th:method="get" class="form-inline my-2 my-lg-0">
+            <input name="nomeBusca" class="form-control mr-sm-2" type="search" placeholder="Pesquisar Loja" aria-label="Pesquisar">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+        </form>
+        <form th:action="@{/shopping/buscar/} " th:method="get" class="form-inline my-2 my-lg-0">
+            <input name="id" type="number" placeholder="Pesquisar Shopping" >
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Pesquisar">
+        </form>
+    </div>
+</nav>
+<div class="container" layout:fragment="content"></div>
+<footer class="text-center">
+    Todos os direitos reservados - 2022 &copy;
+</footer>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
